@@ -17,7 +17,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -28,4 +29,4 @@ services:
 
 networks:
   stock_exchange_network:
-    driver: bridge
+    external: true
