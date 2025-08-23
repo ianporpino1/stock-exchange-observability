@@ -26,6 +26,16 @@ services:
       - prometheus
     networks:
       - stock_exchange_network
+      
+  zipkin:
+    image: openzipkin/zipkin:latest
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    environment:
+      - STORAGE_TYPE=mem
+    networks:
+      - stock_exchange_network
 
 networks:
   stock_exchange_network:
