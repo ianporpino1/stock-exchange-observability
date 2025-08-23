@@ -14,23 +14,28 @@ scrape_configs:
   - job_name: 'order-service'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['order-service:8080']
+      - targets: ['order-service:8081',
+                  'order-service:8082',
+                  'host.docker.internal:8081']
 
   - job_name: 'user-service'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['user-service:8080']
+      - targets: ['user-service:8085',
+                  'host.docker.internal:8085']
 
   - job_name: 'matching-service'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['matching-service:8080']
+      - targets: ['matching-service:8083',
+                  'host.docker.internal:8083']
 
   - job_name: 'portfolio-service'
     metrics_path: /actuator/prometheus
     static_configs:
-      - targets: ['portfolio-service:8080']
-      
+      - targets: ['portfolio-service:8090',
+                  'host.docker.internal:8090']
+
   - job_name: 'discovery-service'
     metrics_path: /actuator/prometheus
     static_configs:
