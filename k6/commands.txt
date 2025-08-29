@@ -1,0 +1,1 @@
+docker-compose run --rm -p 5665:5665 -p 6565:6565 k6 run --out experimental-prometheus-rw /scripts/loadtest.js

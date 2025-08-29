@@ -40,3 +40,9 @@ scrape_configs:
     metrics_path: /actuator/prometheus
     static_configs:
       - targets: ['discovery-service:8761']
+  
+  - job_name: 'k6'
+    static_configs:
+      - targets: ['k6:6565']
+    scrape_interval: 5s
+    metrics_path: /metrics
