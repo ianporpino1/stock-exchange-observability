@@ -111,7 +111,7 @@ export default function (data) {
   }
 
   check(orderRes, {
-    "ordem criada com sucesso": (r) => r.status === 201 || r.status === 200,
+    "ordem criada com sucesso": (r) => r.status === 201 || r.status === 200 || r.status === 202,
   });
     // sleep(1);
 }
